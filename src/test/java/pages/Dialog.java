@@ -26,7 +26,7 @@ public class Dialog extends MyMethods {
     @FindBy(xpath = "//div[text()=\"Cannot read properties of null (reading 'lang')\"]")
     public List<WebElement> errorMessages;
 
-    @FindBy(css = "svg[data-icon=\"plus\"]")
+    @FindBy(css = "ms-add-button[class=\"ng-star-inserted\"]")
     public WebElement addButton;
 
     @FindBy(xpath = "(//input[@data-placeholder=\"Name\"])[2]")
@@ -40,6 +40,15 @@ public class Dialog extends MyMethods {
 
     @FindBy(xpath = "//div[contains(text(),'successfully')]")
     public WebElement successMessage;
+
+    @FindBy(xpath = "(//input[@data-placeholder=\"Name\"])[1]")
+    public WebElement searchNameInput;
+
+    @FindBy(xpath = "//span[text()=\"Search\"]")
+    public WebElement searchButton;
+
+    @FindBy(css = "ms-edit-button[class=\"ng-star-inserted\"]")
+    public WebElement editButton;
 
 
 

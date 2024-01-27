@@ -3,39 +3,67 @@ package stepDefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import pages.Dialog;
 import pages.Menu;
+import utilities.DriverClass;
+
+import java.time.Duration;
 
 public class _02_CountrySteps {
 
     Menu menu = new Menu();
     Dialog dialog = new Dialog();
+
     @And("Navigate to Countries page")
     public void navigateToCountriesPage() {
-        menu.setUpButton.click();
-        menu.parametersButton.click();
-        menu.countriesButton.click();
+        menu.myClick(menu.setUpButton);
+        menu.myClick(menu.parametersButton);
+        menu.myClick(menu.countriesButton);
     }
 
     @And("Click on add button")
     public void clickOnAddButton() {
-        dialog.addButton.click();
+        dialog.myClick(dialog.addButton);
     }
 
     @And("Enter country name and country code")
     public void enterCountryNameAndCountryCode() {
-        dialog.formNameInput.sendKeys("Batch 10");
-        dialog.formCodeInput.sendKeys("BT10");
+        dialog.mySendKeys(dialog.formNameInput, "Batch 10");
+        dialog.mySendKeys(dialog.formCodeInput, "BT10");
     }
 
     @When("Click on save button")
     public void clickOnSaveButton() {
-        dialog.saveButton.click();
+        dialog.myClick(dialog.saveButton);
     }
 
     @Then("Success message should be displayed")
     public void successMessageShouldBeDisplayed() {
+        dialog.waitUntilVisible(dialog.successMessage);
         Assert.assertTrue(dialog.successMessage.isDisplayed());
+    }
+
+    @And("Search for the country")
+    public void searchForTheCountry() {
+        WebDriverWait wait = new WebDriverWait(DriverClass.getDriver(),Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfAllElements(dialog.errorMessages));
+        dialog.mySendKeys(dialog.searchNameInput, "Batch 10");
+        dialog.waitUntilInvisible(dialog.errorMessages);
+        dialog.myClick(dialog.searchButton);
+    }
+
+    @And("Click on edit button")
+    public void clickOnEditButton() {
+        dialog.waitForNumberOfElementsToBe(By.cssSelector("ms-edit-button[class=\"ng-star-inserted\"]"), 1);
+        dialog.myClick(dialog.editButton);
+    }
+
+    @And("Change the country code")
+    public void changeTheCountryCode() {
+        dialog.mySendKeys(dialog.formCodeInput, "BTCH10");
     }
 }

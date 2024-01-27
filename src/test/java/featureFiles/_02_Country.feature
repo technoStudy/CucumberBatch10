@@ -12,3 +12,14 @@ Feature: Country Function
     And Enter country name and country code
     When Click on save button
     Then Success message should be displayed
+
+    Scenario: Update a Country
+      Given Navigate to Campus Web Site
+      And Enter username and password
+      And Click on Login Button
+      And Navigate to Countries page
+      And Search for the country
+      And Click on edit button
+      And Change the country code
+      When Click on save button
+      Then Success message should be displayed
