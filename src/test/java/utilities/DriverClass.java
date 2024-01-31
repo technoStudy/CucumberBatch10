@@ -15,11 +15,11 @@ public class DriverClass {
     }
 
     public static void quitDriver(){
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+//            Thread.sleep(3000);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
         driver.quit();
         driver = null;
     }

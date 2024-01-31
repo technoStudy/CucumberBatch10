@@ -18,12 +18,12 @@ public class _01_LoginSteps {
     WebDriverWait wait = new WebDriverWait(DriverClass.getDriver(), Duration.ofSeconds(10));
     @Given("Navigate to Campus Web Site")
     public void navigate_to_campus_web_site() {
-        System.out.println("Navigating to Campus");
+        //System.out.println("Navigating to Campus");
         DriverClass.getDriver().get("https://test.mersys.io/");
     }
     @Given("Enter username and password")
     public void enter_username_and_password() {
-        System.out.println("Entering username and password");
+        //System.out.println("Entering username and password");
         //wait.until(ExpectedConditions.visibilityOf(dialog.username));
         dialog.waitUntilVisible(dialog.username);
         dialog.username.sendKeys("turkeyts");
@@ -31,12 +31,12 @@ public class _01_LoginSteps {
     }
     @When("Click on Login Button")
     public void click_on_login_button() {
-        System.out.println("Clicking on Login Button");
+        //System.out.println("Clicking on Login Button");
         dialog.loginButton.click();
     }
     @Then("User should login successfully")
     public void user_should_login_successfully() {
-        System.out.println("User is logged in");
+        //System.out.println("User is logged in");
         //wait.until(ExpectedConditions.visibilityOf(menu.dashBoardTitle));
         menu.waitUntilVisible(menu.dashBoardTitle);
         Assert.assertTrue(menu.dashBoardTitle.isDisplayed());

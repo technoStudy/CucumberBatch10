@@ -49,10 +49,7 @@ public class _02_CountrySteps {
 
     @And("Search for the country")
     public void searchForTheCountry() {
-        WebDriverWait wait = new WebDriverWait(DriverClass.getDriver(),Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOfAllElements(dialog.errorMessages));
         dialog.mySendKeys(dialog.searchNameInput, "Batch 10");
-        dialog.waitUntilInvisible(dialog.errorMessages);
         dialog.myClick(dialog.searchButton);
     }
 
@@ -66,4 +63,23 @@ public class _02_CountrySteps {
     public void changeTheCountryCode() {
         dialog.mySendKeys(dialog.formCodeInput, "BTCH10");
     }
+
+    @And("Click on delete button")
+    public void clickOnDeleteButton() {
+        dialog.waitForNumberOfElementsToBe(By.cssSelector("ms-delete-button[class=\"ng-star-inserted\"]"),1);
+        dialog.myClick(dialog.deleteButton);
+    }
+
+    @When("Click on delete confirm")
+    public void clickOnDeleteConfirm() {
+        dialog.myClick(dialog.deleteConfirmButton);
+    }
+
+    @And("Enter {string} as country name and {string} as country code")
+    public void enterAsCountryNameAndAsCountryCode(String countryName, String countryCode) {
+        dialog.mySendKeys(dialog.formNameInput,countryName);
+        dialog.mySendKeys(dialog.formCodeInput, countryCode);
+    }
+
+
 }

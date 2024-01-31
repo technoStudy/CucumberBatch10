@@ -50,6 +50,15 @@ public class Dialog extends MyMethods {
     @FindBy(css = "ms-edit-button[class=\"ng-star-inserted\"]")
     public WebElement editButton;
 
+    @FindBy(css = "ms-delete-button[class=\"ng-star-inserted\"]")
+    public WebElement deleteButton;
+
+    @FindBy(css = "button[type=\"submit\"]")
+    public WebElement deleteConfirmButton;
+
+    @FindBy(xpath = "(//input[@data-placeholder=\"Short Name\"])[2]")
+    public WebElement citizenshipFormShortNameInput;
+
 
 
 }
