@@ -59,6 +59,19 @@ public class Dialog extends MyMethods {
     @FindBy(xpath = "(//input[@data-placeholder=\"Short Name\"])[2]")
     public WebElement citizenshipFormShortNameInput;
 
+    @FindBy(css = "input[data-placeholder=\"Integration Code\"]")
+    public WebElement integrationCode;
 
+    @FindBy(xpath = "(//input[@data-placeholder=\"Priority\"])[2]")
+    public WebElement priority;
+
+    @FindBy(xpath = "(//ms-save-button[@class='ng-star-inserted'])[2]")
+    public WebElement saveAndExitButton;
+
+    @FindBy(xpath = "(//input[@data-placeholder=\"Code\"])[1]")
+    public WebElement searchCodeInput;
+
+    @FindBy(xpath = "(//input[@data-placeholder=\"Priority\"])[1]")
+    public WebElement searchPriorityInput;
 
 }

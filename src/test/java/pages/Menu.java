@@ -26,6 +26,9 @@ public class Menu extends MyMethods {
     @FindBy(xpath = "(//span[text()=\"Citizenships\"])[1]")
     public WebElement citizenshipsButton;
 
+    @FindBy(xpath = "//span[text()=\"Fees\"]")
+    public WebElement feesButton;
+
 
 
 
