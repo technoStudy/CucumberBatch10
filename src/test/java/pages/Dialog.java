@@ -74,4 +74,27 @@ public class Dialog extends MyMethods {
     @FindBy(xpath = "(//input[@data-placeholder=\"Priority\"])[1]")
     public WebElement searchPriorityInput;
 
+    @FindBy(css = "mat-select[formcontrolname=\"academicPeriod\"]")
+    public WebElement academicPeriodDropDown;
+
+    @FindBy(css = "mat-option[role=\"option\"]")
+    public WebElement academicPeriodOption;
+
+    @FindBy(css = "mat-select[formcontrolname=\"id\"]")
+    public WebElement gradeLevelDropDown;
+
+    @FindBy(xpath = "//span[text()=\" violet _ i \"]")
+    public WebElement gradeLevelOption;
+
+    @FindBy(xpath = "//span[text()=\"Description\"]")
+    public WebElement description;
+
+    @FindBy(css = "iframe[title=\"Rich Text Area\"]")
+    public WebElement descriptionAndNotesIFrame;
+
+    @FindBy(css = "body[id=\"tinymce\"]>p")
+    public WebElement descriptionAndNotesTextArea;
+
+    @FindBy(xpath = "//span[text()=\"Notes\"]")
+    public WebElement notes;
 }

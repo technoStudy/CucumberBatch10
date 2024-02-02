@@ -20,3 +20,5 @@ Feature: Entrance Exams Function
       | Batch 10 Exam 1 | Batch 10 is the best   | We are coming strong      |
       | Batch 10 Exam 2 | Batch 10 is fun        | We can do it              |
       | Batch 10 Exam 3 | Batch 10 don't give up | It is too late to give up |
+
+#    ToDo: Write a scenario to delete the exams you have created
