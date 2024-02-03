@@ -7,6 +7,7 @@ Feature: Citizenship Function
     And Click on Login Button
     And Navigate to Citizenships page
 
+  @SmokeTest
   Scenario Outline: Create a citizenship
     And Click on add button
     And Enter "<CitizenshipName>" and "<CitizenshipShortName>"
@@ -22,6 +23,7 @@ Feature: Citizenship Function
 
     # Create delete citizenship scenario with scenario outline and delete the citizenships you have created
 
+  @SmokeTest
   Scenario Outline: Delete a Citizenship
     And Search for "<CitizenshipName>"
     And Click on delete button

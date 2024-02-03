@@ -9,6 +9,7 @@ Feature: Country Function
     And Click on Login Button
     And Navigate to Countries page
 
+  @SmokeTest
   Scenario: Create a new Country
 #    Given Navigate to Campus Web Site
 #    And Enter username and password
@@ -18,6 +19,7 @@ Feature: Country Function
     And Enter country name and country code
     When Click on save button
     Then Success message should be displayed
+
 
   Scenario: Update a Country
 #    Given Navigate to Campus Web Site
@@ -30,6 +32,7 @@ Feature: Country Function
     When Click on save button
     Then Success message should be displayed
 
+  @SmokeTest
   Scenario: Delete a Country
 #    Given Navigate to Campus Web Site
 #    And Enter username and password
@@ -40,6 +43,7 @@ Feature: Country Function
     When Click on delete confirm
     Then Success message should be displayed
 
+  @SmokeTest @FireTest
   Scenario: Create a new country with parameters
     And Click on add button
     And Enter "Batch 10" as country name and "BT10" as country code
@@ -48,7 +52,12 @@ Feature: Country Function
 
 #   ToDo: Create delete country scenario with parameters
 
-
+  @SmokeTest @FireTest
+  Scenario: Delete a country with parameters
+    And Search for "Batch 10"
+    And Click on delete button
+    When Click on delete confirm
+    Then Success message should be displayed
 
 
 

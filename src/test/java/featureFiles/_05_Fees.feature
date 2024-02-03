@@ -6,6 +6,7 @@ Feature: Fees Function
     And Click on Login Button
     And Navigate to Fees Page
 
+  @FireTest
   Scenario: Add a Fee
     And Click on add button
     And Fill The form out
@@ -16,6 +17,7 @@ Feature: Fees Function
     When Click on Save and Exit Button
     Then Success message should be displayed
 
+  @FireTest
   Scenario: Delete a Fee
     And Search for the Fee
       | Batch 10 |

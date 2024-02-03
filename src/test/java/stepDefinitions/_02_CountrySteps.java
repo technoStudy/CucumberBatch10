@@ -80,6 +80,4 @@ public class _02_CountrySteps {
         dialog.mySendKeys(dialog.formNameInput,countryName);
         dialog.mySendKeys(dialog.formCodeInput, countryCode);
     }
-
-
 }
