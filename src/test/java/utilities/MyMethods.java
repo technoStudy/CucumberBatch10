@@ -33,4 +33,11 @@ public class MyMethods {
     public void waitUntilInvisible(List<WebElement> elementList){
         wait.until(ExpectedConditions.invisibilityOfAllElements(elementList));
     }
+
+    public void waitUntilInVisible(WebElement element){
+        wait.until(ExpectedConditions.invisibilityOf(element));
+    }
+
+    // Method Overloading = Having multiple methods with the same name but different parameters. Code can be different as well
+    // Method Overriding = Modifing a method from the super class. Parameters are the same, method name is the same but the code is different
 }

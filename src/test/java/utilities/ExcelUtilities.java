@@ -2,11 +2,10 @@ package utilities;
 
 import io.cucumber.java.Scenario;
 import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -46,7 +45,7 @@ public class ExcelUtilities {
         File file = new File(path);
         if (file.exists()){
             FileInputStream fileInputStream;
-            Workbook workbook;
+            Workbook workbook = null;
             Sheet sheet = null;
             try {
                 fileInputStream = new FileInputStream(path);
@@ -61,11 +60,38 @@ public class ExcelUtilities {
             row.createCell(0).setCellValue(scenario.getId());
             row.createCell(1).setCellValue(scenario.getName());
             row.createCell(2).setCellValue(scenario.getStatus().toString());
+            row.createCell(3).setCellValue(startTime.toString());
+            row.createCell(4).setCellValue(endTime.toString());
+            row.createCell(5).setCellValue(duration.toString());
 
+            try {
+                FileOutputStream fileOutputStream = new FileOutputStream(path);
+                workbook.write(fileOutputStream);
+                workbook.close();
+                fileOutputStream.close();
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
+        }else {
+            XSSFWorkbook workbook = new XSSFWorkbook();
+            XSSFSheet sheet = workbook.createSheet("CampusTestResults");
+            Row row = sheet.createRow(0);
+            row.createCell(0).setCellValue(scenario.getId());
+            row.createCell(1).setCellValue(scenario.getName());
+            row.createCell(2).setCellValue(scenario.getStatus().toString());
+            row.createCell(3).setCellValue(startTime.toString());
+            row.createCell(4).setCellValue(endTime.toString());
+            row.createCell(5).setCellValue(duration.toString());
 
+            try {
+                FileOutputStream fileOutputStream = new FileOutputStream(path);
+                workbook.write(fileOutputStream);
+                workbook.close();
+                fileOutputStream.close();
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
         }
-        //ToDo: Complete this method
-
     }
 
 }
