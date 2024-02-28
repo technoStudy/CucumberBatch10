@@ -97,4 +97,7 @@ public class Dialog extends MyMethods {
 
     @FindBy(xpath = "//span[text()=\"Notes\"]")
     public WebElement notes;
+
+    @FindBy(xpath = "//td[contains(@class,'column-name')]")
+    public List<WebElement> statesList;
 }
