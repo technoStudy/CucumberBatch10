@@ -27,7 +27,7 @@ public class DBUtilities {
     }
 
     @AfterMethod
-    public void DBConnectionClose() throws SQLException {
+    public static void DBConnectionClose() throws SQLException {
         connection.close();
     }
 
@@ -36,24 +36,22 @@ public class DBUtilities {
         DBConnection();
 
         try {
-          ResultSet rs = statement.executeQuery(query);
+            ResultSet rs = statement.executeQuery(query);
 
-          while (rs.next()){ // next returns false if there is no next row. We don't need to get number of rows of our result
-
-          }
-
-
-
-
-
-
-
-
-
+            while (rs.next()) { // next returns false if there is no next row. We don't need to get number of rows of our result
+                List<String> row = new ArrayList<>();
+                int columnCount = rs.getMetaData().getColumnCount();
+                for (int i = 1; i <= columnCount; i++) {
+                    String value = rs.getString(i);
+                    row.add(value);
+                }
+                returnList.add(row);
+            }
+            DBConnectionClose();
         } catch (SQLException e) {
             System.out.println("e.getMessage() = " + e.getMessage());
         }
 
-
+        return returnList;
     }
 }
