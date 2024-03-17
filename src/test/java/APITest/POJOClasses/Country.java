@@ -5,9 +5,21 @@ import java.util.List;
 public class Country {
     private String id;
     private String name;
+    private String shortName;
     private String code;
     private List<String> translateName;
     private boolean hasState;
+
+    public Country() {
+    }
+
+    public Country(String id, String name, String code, List<String> translateName, boolean hasState) {
+        this.id = id;
+        this.name = name;
+        this.code = code;
+        this.translateName = translateName;
+        this.hasState = hasState;
+    }
 
     public String getId() {
         return id;
@@ -47,6 +59,14 @@ public class Country {
 
     public void setHasState(boolean hasState) {
         this.hasState = hasState;
+    }
+
+    public String getShortName() {
+        return shortName;
+    }
+
+    public void setShortName(String shortName) {
+        this.shortName = shortName;
     }
 
     @Override
